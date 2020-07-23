@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="file"
+            type="java.io.File" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            tools:context=".ui.view.ReviewScanImageActivity">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_10"
+                android:contentDescription="@string/back_button"
+                android:src="@drawable/ic_shortcut_arrow_back_filled"
+                android:theme="@style/AppTheme"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvReviewImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:text="@string/review_image"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/imgBack" />
+
+            <EditText
+                android:id="@+id/etFileName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:hint="@string/enter_file_name"
+                android:text="@{file.name}"
+                app:layout_constraintTop_toBottomOf="@id/tvReviewImage" />
+
+            <TextView
+                android:id="@+id/tvReviewMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:importantForAutofill="no"
+                android:justificationMode="inter_word"
+                android:text="@string/msg_review_image"
+                app:layout_constraintTop_toBottomOf="@id/etFileName"
+                tools:targetApi="o" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_250"
+                android:layout_marginStart="@dimen/dp_20"
+                app:setImage="@{file}"
+                android:layout_marginTop="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_20"
+                app:layout_constraintTop_toBottomOf="@id/tvReviewMessage"
+                tools:ignore="ContentDescription"
+                tools:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:id="@+id/overlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+
+                <Button
+                    android:id="@+id/btnRetake"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/retake"
+                    android:textAllCaps="false"
+                    tools:ignore="ButtonStyle" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:id="@+id/btnSave"
+                    android:text="@string/save"
+                    android:textAllCaps="false"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:ignore="ButtonStyle" />
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="file"
+            type="java.io.File" />
+
+        <variable
+            name="clickHandler"
+            type="com.rishavgupta.scanner.ui.interfaces.GridItemInterface" />
+
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10">
+
+
+        <ImageView
+            android:id="@+id/thumbImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_150"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/grid_image_item"
+            android:onClick="@{()->clickHandler.onGridItemClicked(file)}"
+            app:setImage="@{file}"
+            tools:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:background="@color/black_50"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="@dimen/dp_5"
+            android:text="@{file.name}"
+            android:textColor="@color/light_white"
+            android:textSize="12sp"
+            tools:text="Sample.jpg" />
+    </FrameLayout>
+
+</layout>
